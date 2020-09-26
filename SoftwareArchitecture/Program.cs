@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoftwareArchitecture.BLL;
+using SoftwareArchitecture.PL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace SoftwareArchitecture
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+            Application.Run(new MainForm());
         }
     }
 }

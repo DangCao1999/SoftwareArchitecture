@@ -11,15 +11,19 @@ namespace SoftwareArchitecture.DAL
 {
     class SmartPhoneDAO
     {
+        private string strCon;
+        private SqlConnection sqlConnection;
+
+        public SmartPhoneDAO()
+        {
+            strCon = "SERVER=den1.mssql7.gear.host;DATABASE=cao2246;USER=cao2246;PASSWORD=Ed490?jf-m5Q";
+            sqlConnection = new SqlConnection(strCon);
+            sqlConnection.Open();
+        }
+       
         public List<SmartPhone> getListSmartPhone()
         {
             List<SmartPhone> listSmartPhones = new List<SmartPhone>();
-
-            string strCon = "SERVER=den1.mssql7.gear.host;DATABASE=cao2246;USER=cao2246;PASSWORD=Ed490?jf-m5Q";
-
-            SqlConnection sqlConnection = new SqlConnection(strCon);
-
-            sqlConnection.Open();
 
             string query = "select * from SmartPhone";
 
@@ -49,36 +53,22 @@ namespace SoftwareArchitecture.DAL
         {
             List<SmartPhone> listSmartPhones = new List<SmartPhone>();
 
-            string strCon = "SERVER=den1.mssql7.gear.host;DATABASE=cao2246;USER=cao2246;PASSWORD=Ed490?jf-m5Q";
-
-            SqlConnection sqlConnection = new SqlConnection(strCon);
-
-            sqlConnection.Open();
-
             string query = "Delete from SmartPhone where Code = @code";
 
             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
-
-           
-
             sqlCommand.Parameters.Add(new SqlParameter("@code", code));
             try
             {
+                
                 return sqlCommand.ExecuteNonQuery() > 0;
             }
-            catch{ return false; }
+            catch{  return false; }
         }
 
         public List<SmartPhone> searchByName(string keyword)
         {
             List<SmartPhone> listSmartPhones = new List<SmartPhone>();
-
-            string strCon = "SERVER=den1.mssql7.gear.host;DATABASE=cao2246;USER=cao2246;PASSWORD=Ed490?jf-m5Q";
-
-            SqlConnection sqlConnection = new SqlConnection(strCon);
-
-            sqlConnection.Open();
 
             string query = "select * from SmartPhone where Name LIKE '%" + keyword + "%'";
 
@@ -103,6 +93,36 @@ namespace SoftwareArchitecture.DAL
 
             }
             return listSmartPhones;
+        }
+
+        public bool addSmartPhone(SmartPhone smartPhone)
+        {
+            string query = "INSERT INTO SmartPhone values(@Name, @Price, @Brand, @Color)";
+
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+            sqlCommand.Parameters.Add(new SqlParameter("@Name", smartPhone.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@Price", smartPhone.Price));
+            sqlCommand.Parameters.Add(new SqlParameter("@Brand", smartPhone.Brand));
+            sqlCommand.Parameters.Add(new SqlParameter("@Color", smartPhone.Color));
+
+            return sqlCommand.ExecuteNonQuery() > 0;
+              
+        }
+
+        public bool updateSmartPhone(SmartPhone smartPhone)
+        {
+            string query = "UPDATE SmartPhone SET Name = @Name, Price = @Price, Brand = @Brand, Color = @Color WHERE Code = @Code";
+
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+            sqlCommand.Parameters.Add(new SqlParameter("@Code", smartPhone.Code));
+            sqlCommand.Parameters.Add(new SqlParameter("@Name", smartPhone.Name));
+            sqlCommand.Parameters.Add(new SqlParameter("@Price", smartPhone.Price));
+            sqlCommand.Parameters.Add(new SqlParameter("@Brand", smartPhone.Brand));
+            sqlCommand.Parameters.Add(new SqlParameter("@Color", smartPhone.Color));
+
+            return sqlCommand.ExecuteNonQuery() > 0;
         }
 
     }

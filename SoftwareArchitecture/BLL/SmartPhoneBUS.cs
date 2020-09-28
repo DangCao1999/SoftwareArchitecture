@@ -28,5 +28,17 @@ namespace SoftwareArchitecture.BLL
             List<SmartPhone> smartPhones = new SmartPhoneDAO().searchByName(keyword);
             return smartPhones;
         }
+
+        public bool addSmartPhone (SmartPhone smartPhone)
+        {
+            bool rs = new SmartPhoneDAO().addSmartPhone(smartPhone);
+            return rs;
+        }
+
+        public bool updateSmartPhone(SmartPhone smartPhone)
+        {
+            bool rs = new SmartPhoneDAO().updateSmartPhone(smartPhone);
+            return rs;
+        }
     }
 }

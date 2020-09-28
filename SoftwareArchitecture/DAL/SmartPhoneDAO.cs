@@ -11,7 +11,6 @@ namespace SoftwareArchitecture.DAL
 {
     class SmartPhoneDAO
     {
-       
         public List<SmartPhone> getListSmartPhone()
         {
             List<SmartPhone> listSmartPhones = new List<SmartPhone>();

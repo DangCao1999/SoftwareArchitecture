@@ -27,6 +27,7 @@ namespace SoftwareArchitecture.PL
             dataGridView1.DataSource = smartPhones;
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -69,5 +70,6 @@ namespace SoftwareArchitecture.PL
             List<SmartPhone> smartPhones = new SmartPhoneBUS().searchByName(keyword);
             dataGridView1.DataSource = smartPhones;
         }
+
     }
 }

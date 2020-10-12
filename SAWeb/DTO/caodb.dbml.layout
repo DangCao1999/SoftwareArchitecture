@@ -1,1 +1,12 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="caodb">
+  <DataContextMoniker Name="/caodbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7a4300b1-f1f7-411e-9bee-0597fb02dc8a" absoluteBounds="2.875, 1.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/caodbDataContext/Smartphone" />
+      <nestedChildShapes>
+        <elementListCompartment Id="386e5c71-1c5f-4d83-845f-55a215dbcdd4" absoluteBounds="2.8899999999999997, 2.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

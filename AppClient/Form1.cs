@@ -13,25 +13,33 @@ namespace AppClient
 {
     public partial class Form1 : Form
     {
-        ISmartPhoneBUS smartPhoneBUS;
+        //ISmartPhoneBUS smartPhoneBUS;
+        host.gear.cao2246soap.SOAPService SOAPservice;
         public Form1()
         {
             InitializeComponent();
-            string uri = "tcp://127.0.0.1:6868/abc";
-            smartPhoneBUS = (ISmartPhoneBUS)Activator.GetObject(typeof(ISmartPhoneBUS), uri);
+            //string uri = "tcp://127.0.0.1:6868/abc";
+            //smartPhoneBUS = (ISmartPhoneBUS)Activator.GetObject(typeof(ISmartPhoneBUS), uri);
+
+            SOAPservice = new host.gear.cao2246soap.SOAPService();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            //List<Smartphone> smartphones = smartPhoneBUS.getAllList();
+            //dataGridView1.DataSource = smartphones;
+
             
-            List<Smartphone> smartphones = smartPhoneBUS.getAllList();
+            List<host.gear.cao2246soap.Smartphone> smartphones = SOAPservice.getAllList().ToList();
             dataGridView1.DataSource = smartphones;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-          
-            Smartphone smartphone = new Smartphone()
+
+           host.gear.cao2246soap.Smartphone smartphone = new host.gear.cao2246soap.Smartphone()
             {
                 Brand = textBoxBrand.Text,
                 Name = textBoxName.Text,
@@ -39,16 +47,16 @@ namespace AppClient
                 Price = Convert.ToInt32(textBoxPrice.Text)
             };
 
-            bool rs = smartPhoneBUS.addSmartPhone(smartphone);
+            bool rs = SOAPservice.addSmartPhone(smartphone);
 
             if (rs)
             {
-                List<Smartphone> smartPhones = smartPhoneBUS.getAllList();
+                List<host.gear.cao2246soap.Smartphone> smartPhones = SOAPservice.getAllList().ToList();
                 dataGridView1.DataSource = smartPhones;
             }
             else
             {
-                MessageBox.Show("Somgthing Wrong!!!");
+                MessageBox.Show("Something Wrong!!!");
             }
         }
 
@@ -60,7 +68,7 @@ namespace AppClient
             }
             else
             {
-                Smartphone smartPhone = new Smartphone()
+                host.gear.cao2246soap.Smartphone smartPhone = new host.gear.cao2246soap.Smartphone()
                 {
                     Code = Convert.ToInt16(textBoxCode.Text),
                     Brand = textBoxBrand.Text,
@@ -68,11 +76,11 @@ namespace AppClient
                     Color = textBoxColor.Text,
                     Price = Convert.ToInt32(textBoxPrice.Text)
                 };
-                bool rs = smartPhoneBUS.updateSmartPhone(smartPhone);
+                bool rs = SOAPservice.updateSmartPhone(smartPhone);
                 if (rs)
                 {
                     MessageBox.Show("Edit Sucess ^.^");
-                    List<Smartphone> smartPhones = smartPhoneBUS.getAllList();
+                    List<host.gear.cao2246soap.Smartphone> smartPhones = SOAPservice.getAllList().ToList();
                     dataGridView1.DataSource = smartPhones;
                 }
                 else MessageBox.Show("Something Wrong!!!");
@@ -85,10 +93,10 @@ namespace AppClient
             DialogResult dialog = MessageBox.Show("Are You Sure?", "CONFIRMATION", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                bool result = smartPhoneBUS.deleteSmartPhoneByCode(code);
+                bool result = SOAPservice.deleteSmartPhoneByCode(code);
                 if (result)
                 {
-                    List<Smartphone> smartPhones = smartPhoneBUS.getAllList();
+                    List<host.gear.cao2246soap.Smartphone> smartPhones = SOAPservice.getAllList().ToList();
                     dataGridView1.DataSource = smartPhones;
                 }
                 else
@@ -114,7 +122,7 @@ namespace AppClient
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string keyword = textBoxSearch.Text;
-            List<Smartphone> smartPhones = smartPhoneBUS.searchByName(keyword);
+            List<host.gear.cao2246soap.Smartphone> smartPhones = SOAPservice.searchByName(keyword).ToList();
             dataGridView1.DataSource = smartPhones;
         }
     }

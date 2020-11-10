@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShared", "AppShared\AppS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppService", "AppService\AppService.csproj", "{3C4655F2-290D-40DC-BF2D-3C35D0D80C80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppServiceSOAP", "AppServiceSOAP\AppServiceSOAP.csproj", "{A856A7AF-76BC-4651-BF3C-BD7C9FFA6E05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3C4655F2-290D-40DC-BF2D-3C35D0D80C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C4655F2-290D-40DC-BF2D-3C35D0D80C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C4655F2-290D-40DC-BF2D-3C35D0D80C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A856A7AF-76BC-4651-BF3C-BD7C9FFA6E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A856A7AF-76BC-4651-BF3C-BD7C9FFA6E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A856A7AF-76BC-4651-BF3C-BD7C9FFA6E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A856A7AF-76BC-4651-BF3C-BD7C9FFA6E05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

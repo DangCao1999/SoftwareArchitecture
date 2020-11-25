@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="smartphones.js"></script>
+</head>
+
+<body onload="page_Load()">
+  <h2>SMARTPHONE LIST</h2>
+  <input type="text" id="txtKeyword" placeholder="Keyword" />&nbsp;
+  <input type="button" value="SEARCH" onclick="btnSearch_Click()" />
+  <br /><br />
+  <table id="lstBooks" border="1"></table>
+  <br />
+  <h2>SMARTPHONE DETAILS</h2>
+  <table>
+    <tr>
+      <td>Code</td>
+      <td><input type="text" id="txtCode" readonly="true" /></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" id="txtName" /></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input type="text" id="txtPrice" /></td>
+    </tr>
+    <tr>
+      <td>Brand</td>
+      <td><input type="text" id="txtBrand" /></td>
+    </tr>
+    <tr>
+      <td>Color</td>
+      <td><input type="text" id="txtColor" /></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="button" value="ADD NEW" onclick="btnAdd_Click()" />
+        <input type="button" value="UPDATE" onclick="btnUpdate_Click()" />
+        <input type="button" value="DELETE" onclick="btnDelete_Click()" />
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

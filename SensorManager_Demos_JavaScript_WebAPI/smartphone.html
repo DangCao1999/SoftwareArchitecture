@@ -1,0 +1,80 @@
+<html>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase.js"></script>
+  <script src="smartphone.js"></script>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  
+</head>
+
+<style type="text/css">
+		h1, h2, table {
+		  text-align: center;
+		}
+		
+		td {
+			text-align: center; 
+			vertical-align: middle; 
+		}
+		
+
+		
+</style>
+
+<body onload="page_Load()">
+  <h2>SMARTPHONES LIST MANAGEMENT</h2>
+  <div style="display:flex; justify-content: center;"> 
+  <input type="text" id="txtKeyword" placeholder="Keyword" class="form-control" style="width: 300px;"/>&nbsp;
+  <input type="button" value="SEARCH" onclick="btnSearch_Click()" class="btn btn-outline-info"/>
+  </div>
+  <br /><br />
+  <table id="lstSmartphones" class="table table-hover"></table>
+  <br />
+  <h2>SMARTPHONES</h2>
+  <table style="display:flex; justify-content: center;">
+    <tr>
+      <td>Code</td>
+      <td><input type="text" id="txtCode"/></td>
+    </tr>
+	
+    <tr>
+      <td>Name</td>
+      <td><input type="text" id="txtName" /></td>
+    </tr>
+	
+    <tr>
+      <td>Brand</td>
+      <td><input type="text" id="txtBrand"/></td>
+    </tr>
+	
+    <tr>
+      <td>Price</td>
+      <td><input type="text" id="txtPrice" /></td>
+    </tr>
+	
+	<tr>
+      <td>Color</td>
+      <td><input type="text" id="txtColor" /></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <input type="button" value="ADD NEW" onclick="btnAdd_Click()" class="btn btn-outline-success"/>
+        <input type="button" value="UPDATE" onclick="btnUpdate_Click()" class="btn btn-outline-primary"/>
+        <input type="button" value="DELETE" onclick="btnDelete_Click()" class="btn btn-outline-danger"/>
+      </td>
+    </tr>
+  </table>
+  
+
+  
+</body>
+
+</html>
